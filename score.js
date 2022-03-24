@@ -1,4 +1,5 @@
 "use strict";
+alert('hello world!');
 // Четвертные
 const quarterThreeEstimation = 2.56; // Оценка 3 четвертная
 const quarterFourEstimation = 3.56 // Оценка 4 четвертная
