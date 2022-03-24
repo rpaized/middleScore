@@ -65,8 +65,11 @@ function countScore(quarterEstimation, estimation) {
 
 // Функция - сообщение кол-ва оценок для нужной четвертной оценки
 function alertEstimation(storage1, storage2, storage3, storage4) {
-    alert("Ваш средний балл: " + middleScore.toFixed(2) + "\nЧтобы за четверть вышла 4, нужно 4: " + storage1 + ", или 5: " + storage2 + "\nЧтобы за четверть вышла 5, нужно 4: " + storage3 + ", или 5: " + storage4);
+    alert("Ваш средний балл: " + middleScore.toFixed(2) + "\nЧтобы за четверть вышла 4, нужно 4: " + storage1 + 
+    ", или 5: " + storage2 + "\nЧтобы за четверть вышла 5, нужно 5: " + storage3);
 }
   
-alertEstimation(countScore(quarterFourEstimation, 4), countScore(quarterFourEstimation, 5), countScore(quarterFiveEstimation,4), countScore(quarterFiveEstimation, 5));
+alertEstimation(countScore(quarterFourEstimation, 4), 
+                countScore(quarterFourEstimation, 5),
+                countScore(quarterFiveEstimation, 5));
 
