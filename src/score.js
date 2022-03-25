@@ -39,7 +39,7 @@ const amountScoreInArray = Object.keys(arrayQuantity).length; // Кол-во о�
 const middleScore = sumQuantity/amountScoreInArray; // Средний балл предмета (вводимого пользователем)
 
 // Функция - подсчёт кол-ва оценок для получения нужной оценки в четверти
-function countScore(quarterEstimation, estimation) {
+function calcScore(quarterEstimation, estimation) {
 	let middle = middleScore;
 	let amount = amountScoreInArray;
     let sum = sumQuantity; // сумма оценок
@@ -60,10 +60,10 @@ function showEstimation(storage1, storage2, storage3, storage4, storage5) {
     "\nЧтобы за четверть вышла 5, нужно 5: " + storage5);
 }
   
-showEstimation(countScore(quarterThreeEstimation, 4), // storage1 (четвертная 3)
-               countScore(quarterThreeEstimation, 5), // storage2 (четвертная 3)
-               countScore(quarterFourEstimation, 4),  // storage3 (четвертная 4)
-               countScore(quarterFourEstimation, 5),  // storage4 (четвертная 4)
-               countScore(quarterFiveEstimation, 5)   // storage5  (четвертная 5)
+showEstimation(calcScore(quarterThreeEstimation, 4), // storage1 (четвертная 3)
+               calcScore(quarterThreeEstimation, 5), // storage2 (четвертная 3)
+               calcScore(quarterFourEstimation, 4),  // storage3 (четвертная 4)
+               calcScore(quarterFourEstimation, 5),  // storage4 (четвертная 4)
+               calcScore(quarterFiveEstimation, 5)   // storage5  (четвертная 5)
 );
 
