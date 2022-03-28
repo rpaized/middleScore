@@ -4,23 +4,17 @@ const quarterThreeEstimation = 2.56; // Оценка 3 четвертная
 const quarterFourEstimation = 3.56 // Оценка 4 четвертная
 const quarterFiveEstimation = 4.56 // Оценка 5 четвертная
 
-let writeQuantity = 0; // Содержит тип вводимых данных
+let pattern = /\s*\D*/;
 let arrayQuantityString = []; // Соддержит кол-во оценок
-let askWriteQuantity = confirm(`Нажмите "Да", если хотите вводить данные через пробел, или "Нет", если хотите вводить данные слитно.`);
+let writeQuantity = prompt('Введите оценки' + '\nЕсли есть запятая в конце, то убери её!');
 
-// Опрос типа вводимых данных
-if (askWriteQuantity == true) { 
-    writeQuantity = prompt(`Введите оценки через пробел`);
-} else {
-    writeQuantity = prompt(`Введите оценки без пробелов`);
-}
+function arrSplit(string, pattern) {
+    let array;
+    return array = string.split(pattern);
+};   
 
 // Разделение текста в массив
-if (askWriteQuantity === true) { 
-    arrayQuantityString = writeQuantity.split(' ');
-} else {
-    arrayQuantityString = writeQuantity.split('');
-} 
+arrayQuantityString = arrSplit(writeQuantity, pattern);
 
 // Выписывает оценки и вносит в массив, скорее всего
 let arrayQuantity = arrayQuantityString.map(function (item) {
