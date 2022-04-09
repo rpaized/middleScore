@@ -2,9 +2,42 @@
 <meta charset="UTF-8">
 <html>
     <head>
+        <style>
+            @font-face { 
+               font-family: 'JetBrains Mono Medium'; 
+               src: url('font/JetBrainsMono-Medium.ttf'); 
+            }
+            div {
+                text-align: center;
+                font-family: 'JetBrains Mono Medium';
+            }
+            table, tr, td {
+                font-family: 'JetBrains Mono Medium';
+                text-align: center;
+                height: max-content;
+                font-weight: lighter;
+                padding: 2px;
+                width: fit-content;
+                height: fit-content;
+                padding-top: 5px;
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+        </style>
         <title>Счёт оценок</title>
     </head>
     <body>
+        <div align="center">
+        <h1>Счёт четвертной оценки</h1>
+        <h3>by RPAIZED</h3>
+        <h4><br><a href="https://github.com/rpaized">GitHub</a> <a href="https://vk.com/stascomentarovskiy">VK</a></h4>
+        <br><br>Введите оценки:
+        <br><input type="text" id="input-score" size="25px"> 
+        <button>OK</button>
+        </div>
         <script src="src/score.js"></script>
+        <br><br><br>
+        <div class="table-score" align="center"></div>
+        <script src="src/table.js"></script>  
     </body>
 </html>
