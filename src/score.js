@@ -49,12 +49,59 @@ function calcScore(quarterEstimation, estimation) {
 	return quantity;
 };
 
+function checkNaNInArray() {
+    for(let i = 0; i < amountScoreInArray; i++) {
+        if (isNaN(arrayQuantity[i])) {
+            arrayQuantity.splice(i, 1);
+        };
+    };
+    return arrayQuantity;
+};
+
+function checkArrayString() {
+
+    for(let i = 0; i < amountScoreInArray; i++) {
+
+        if (arrayQuantity[i] === 'del') {
+            arrayQuantity.splice(i, 1);
+        };
+        
+    };
+
+    return arrayQuantity;
+};
+
+function checkScoreMoreFive() {
+    let i = 0;
+    let check;
+
+    while(i < amountScoreInArray) {
+
+        if (arrayQuantity[i] > 5 || arrayQuantity[i] === 0) {
+            arrayQuantity.splice(i, 1);
+            i--;
+            check = 1;
+        };
+        
+        i++;
+    };
+
+    if (check) {
+        document.querySelector('.alert-invalid-input').innerHTML = `Введёный текст содержит оценку(и) больше 5 баллов`;
+    };
+
+    return arrayQuantity;
+};
+
 function allCalc() {
     let writeQuantity = inputScore.value;
     arrayQuantityString = arrSplit(arrayQuantityString, writeQuantity, pattern);
     arrayQuantity = rewriteScoreInArray(arrayQuantityString);
+    amountScoreInArray = Object.keys(arrayQuantity).length; // Кол-во оценок для проверки на NaN
+    arrayQuantity = checkNaNInArray();
+    arrayQuantity = checkScoreMoreFive();
+    amountScoreInArray = Object.keys(arrayQuantity).length; // Кол-во оценок окончательное
     sumQuantity = sumScoreArray(arrayQuantity);
-    amountScoreInArray = Object.keys(arrayQuantity).length; // Кол-во оценок
     middleScore = sumQuantity/amountScoreInArray;
 };
 
@@ -67,7 +114,7 @@ function calcScore(quarterEstimation, estimation) {
         amount++;
 		sum += estimation;
 		middle = sum/amount;
-    }
+    };
     quantity = amount - amountScoreInArray;
     return quantity; 
 };
@@ -76,7 +123,7 @@ function calcMiddleScore(quarterEstimation, estimation) {
 	let middle = middleScore;
 	let amount = amountScoreInArray;
     let sum = sumQuantity; // сумма оценок
-	let quantity;
+	let quantity; 
 	while(middle<=quarterEstimation) {
         amount++;
 		sum += estimation;
@@ -87,6 +134,7 @@ function calcMiddleScore(quarterEstimation, estimation) {
 };
 
 button.addEventListener("click", allCalc);
+
 
 
 
