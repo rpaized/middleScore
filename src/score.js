@@ -93,6 +93,12 @@ function checkScoreMoreFive() {
     return arrayQuantity;
 };
 
+function showEmpty() {
+    if (amountScoreInArray === 0) {
+        document.querySelector('.alert-invalid-input').innerHTML = `Введите оценки!`;
+    };
+};
+
 function allCalc() {
     let writeQuantity = inputScore.value;
     arrayQuantityString = arrSplit(arrayQuantityString, writeQuantity, pattern);
@@ -101,6 +107,7 @@ function allCalc() {
     arrayQuantity = checkNaNInArray();
     arrayQuantity = checkScoreMoreFive();
     amountScoreInArray = Object.keys(arrayQuantity).length; // Кол-во оценок окончательное
+    showEmpty();
     sumQuantity = sumScoreArray(arrayQuantity);
     middleScore = sumQuantity/amountScoreInArray;
 };

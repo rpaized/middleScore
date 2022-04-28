@@ -1,10 +1,17 @@
 "use strict";
 
 function tableScore() {
-    document.querySelector('.table-score').innerHTML = `<table class="table" border="1" bordercolor="#B8860B" bgcolor="#DAA520"></table>`
     
+    if (middleScore > quarterFiveEstimation) {
+        document.querySelector('.table-score').innerHTML = ``;
+        return;
+    } else { 
+        document.querySelector('.table-score').innerHTML = `<table class="table" border="1" bordercolor="#B8860B" bgcolor="#DAA520"></table>`;
+    };
     
-    if (middleScore > quarterFourEstimation) {
+    if (middleScore > quarterFiveEstimation) {
+        return;
+    } else if (middleScore > quarterFourEstimation) {
         let row_1 = document.createElement('tr');
         row_1.innerHTML = `
             <td></td>
@@ -24,7 +31,7 @@ function tableScore() {
             <td><strong><em>Средний балл (полученный пятёрками)</strong></em></td>
         `;
         document.querySelector('.table').appendChild(row_1);
-    }
+    };
     
     
     if (middleScore < quarterThreeEstimation) {
@@ -77,4 +84,10 @@ function tableScore() {
     };
 };
 
-button.addEventListener("click", tableScore);
+function showTableScore() {
+    if (amountScoreInArray !== 0) {
+        button.addEventListener("click", tableScore);
+    };
+};
+
+button.addEventListener("click", showTableScore);
