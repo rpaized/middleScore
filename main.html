@@ -2,38 +2,8 @@
 <meta charset="UTF-8">
 <html>
     <head>
-        <style>
-            @font-face { 
-               font-family: 'JetBrains Mono Medium'; 
-               src: url('font/JetBrainsMono-Medium.ttf'); 
-            }
-            div {
-                text-align: center;
-                font-family: 'JetBrains Mono Medium';
-            }
-
-            table, tr, td {
-                font-family: 'JetBrains Mono Medium';
-                text-align: center;
-                height: max-content;
-                font-weight: lighter;
-                padding: 2px;
-                width: fit-content;
-                height: fit-content;
-                padding-top: 5px;
-                padding-right: 10px;
-                padding-left: 10px;
-            }
-            .alert-invalid-input {
-                font-family: 'JetBrains Mono Medium';
-                text-align: center;
-                font-weight: bolder;
-                color: red;
-                font-size: larger;               
-            }
-        </style>
+        <link rel="stylesheet" href="style/style.css">
         <title>Счёт оценок</title>
-        <script src="lib/momemt.min.js"></script>
     </head>
     <body>
         <div align="center">
@@ -41,8 +11,9 @@
         <h3>by RPAIZED</h3>
         <h4><br><a href="https://github.com/rpaized">GitHub</a> <a href="https://vk.com/stascomentarovskiy">VK</a></h4>
         <br><br>Введите оценки:
-        <br><input type="text" id="input-score" size="25px"> 
-        <button>OK</button>
+        <br><textarea class='text-string' name="input-score" placeholder="5, 4, УП, 3, 4..." wrap="soft"></textarea>
+        <br><button class ='button-text-center'><span>OK</span></button>
+        <br>
         </div>
         <br>
         <div class="alert-invalid-input"></div>

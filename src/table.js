@@ -4,6 +4,13 @@ function tableScore() {
     
     if (middleScore > quarterFiveEstimation) {
         document.querySelector('.table-score').innerHTML = ``;
+        warning.innerHTML = `Ваш балл выше 4.56!`;
+        console.log('middleScore > quarterFiveEstimation');
+        return;
+    } else if ( isNaN(arrayQuantity[0]) ) {
+        document.querySelector('.table-score').innerHTML = ``;
+        warning.innerHTML = `Введите оценки!`;
+        console.log('isNaN(arrayQuantity[0])');
         return;
     } else { 
         document.querySelector('.table-score').innerHTML = `<table class="table" border="1" bordercolor="#B8860B" bgcolor="#DAA520"></table>`;
@@ -84,9 +91,13 @@ function tableScore() {
     };
 };
 
+
+
 function showTableScore() {
-    if (amountScoreInArray !== 0) {
-        button.addEventListener("click", tableScore);
+    console.log('showTableScore - work!');
+    if ( amountScoreInArray !== 0 || isNaN(arrayQuantity[0])) {
+        tableScore();
+        console.log('if in showTableScore - work!');
     };
 };
 

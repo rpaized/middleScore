@@ -5,14 +5,16 @@ const quarterThreeEstimation = 2.56; // Оценка 3 четвертная
 const quarterFourEstimation = 3.56 // Оценка 4 четвертная
 const quarterFiveEstimation = 4.56 // Оценка 5 четвертная
 
+let warning = document.querySelector('.alert-invalid-input');
+
 let pattern = /\s*\D*/; 
 let arrayQuantityString = [];
 let arrayQuantity = [];
 let sumQuantity = 0;
 let amountScoreInArray = 0; // Кол-во оценок
 let middleScore = 0;
-let inputScore = document.getElementById("input-score");
-let button = document.querySelector('button');
+let inputScore = document.querySelector(".text-string");
+let button = document.querySelector('.button-text-center');
 
 function arrSplit(array,string,pattern) {
     array = string.split(pattern);
@@ -87,7 +89,7 @@ function checkScoreMoreFive() {
     };
 
     if (check) {
-        document.querySelector('.alert-invalid-input').innerHTML = `Введёный текст содержит оценку(и) больше 5 баллов`;
+        warning.innerHTML = `Введёный текст содержит оценку(и) больше 5 баллов`;
     };
 
     return arrayQuantity;
@@ -95,7 +97,7 @@ function checkScoreMoreFive() {
 
 function showEmpty() {
     if (amountScoreInArray === 0) {
-        document.querySelector('.alert-invalid-input').innerHTML = `Введите оценки!`;
+        warning.innerHTML = `Введите оценки!`;
     };
 };
 
@@ -110,6 +112,7 @@ function allCalc() {
     showEmpty();
     sumQuantity = sumScoreArray(arrayQuantity);
     middleScore = sumQuantity/amountScoreInArray;
+    console.log('allCalc - work!');
 };
 
 function calcScore(quarterEstimation, estimation) {
